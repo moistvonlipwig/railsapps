@@ -70,5 +70,6 @@ class DodosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dodo_params
       params.require(:dodo).permit(:name)
+      params.require(:dodo).permit(:complete)
     end
 end
