@@ -1,0 +1,11 @@
+%h1 Showing dodo
+
+%p#notice #{notice}
+
+%p
+  %strong Name
+  = @dodo.name
+
+= link_to 'Edit', edit_dodo_path(@dodo) 
+|
+= link_to 'Back', dodos_path 

@@ -1,0 +1,19 @@
+= form_for(@dodo) do |f|
+  - if @dodo.errors.any?
+    #error_explanation
+
+      %ul
+      - @dodo.errors.full_messages.each do |msg| 
+        %li= msg 
+      - @end
+
+  .field
+    = f.label :name 
+    = f.text_field :name 
+
+  .field
+    = f.label :complete
+    = f.check_box :complete
+
+  .actions
+    = f.submit
