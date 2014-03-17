@@ -1,0 +1,27 @@
+<h1>Listing dodos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dodos.each do |dodo| %>
+      <tr>
+        <td><%= dodo.name %></td>
+        <td><%= link_to 'Show', dodo %></td>
+        <td><%= link_to 'Edit', edit_dodo_path(dodo) %></td>
+        <td><%= link_to 'Destroy', dodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dodo', new_dodo_path %>
