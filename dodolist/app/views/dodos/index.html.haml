@@ -1,29 +1,24 @@
-%h1 Listing dodos
-
 %table
   %thead
     %tr
       %th Name
       %th Done?
-      %th
-      %th
-      %th
-
+      %th Created
+      %th Preview
   %tbody
     - @dodos.each do |dodo|
       %tr
         %td= dodo.name
         %td
           - if dodo.complete
-            .complete_field.boolean_type Done
+            = link_to 'Done...', dodo
           - else
             .badge.badge_important Incomplete
-
-        %td= link_to 'Show', dodo
-        %td= link_to 'Edit', edit_dodo_path(dodo)
-        %td= link_to 'Destroy', dodo, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= dodo.created_at.strftime("%m/%d/%Y")
+        %td= link_to 'Preview...', dodo
     - @end
-
 %br
 
-= link_to 'New Dodo', new_dodo_path
+= link_to 'New Dodo', 
+      { :action => :new },
+      { :class=> "button secondary small radius"}
