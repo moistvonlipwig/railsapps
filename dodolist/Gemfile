@@ -58,3 +58,5 @@ gem 'haml', '~> 4.0.5'
 # Adding RailsAdmin
 gem 'rails_admin'
 
+#Debugging
+gem 'hirb'

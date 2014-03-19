@@ -24,7 +24,7 @@ class DodosController < ApplicationController
   # POST /dodos
   # POST /dodos.json
   def create
-    @dodo = Dodo.new(dodo_params)
+    @dodo = Dodo.new(dodo_params)    
 
     respond_to do |format|
       if @dodo.save
@@ -69,7 +69,6 @@ class DodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dodo_params
-      params.require(:dodo).permit(:name)
-      params.require(:dodo).permit(:complete)
+      params.require(:dodo).permit(:name,:complete,:ranking)
     end
 end

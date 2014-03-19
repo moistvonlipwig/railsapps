@@ -1,3 +1,6 @@
+%script
+  $('.datepicker').fdatepicker()
+
 = form_for(@dodo) do |f|
   - if @dodo.errors.any?
     #error_explanation
@@ -12,8 +15,13 @@
     = f.text_field :name 
 
   .field
-    = f.label :complete
+    = f.label :complete 
     = f.check_box :complete
+
+
+  .field
+    = f.label :ranking
+    = f.text_field :ranking 
 
   .actions
     = f.submit

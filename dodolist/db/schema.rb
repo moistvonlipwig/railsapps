@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317211523) do
+ActiveRecord::Schema.define(version: 20140319213237) do
 
   create_table "dodos", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "complete"
+    t.integer  "ranking"
   end
 
   create_table "users", force: true do |t|
