@@ -73,4 +73,14 @@ rake db:migrate
 
 http://localhost:3000/admin
 
+### Debuging
+gem install hirb
+update Gemfile "gem 'herb'
+
+> rails console
+> require 'hirb'
+> Hirb.enable
+> Dodo.limit(5)
+> Dodo.column_names
+
 
