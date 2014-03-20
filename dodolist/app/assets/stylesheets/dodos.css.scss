@@ -1,3 +1,12 @@
 // Place all the styles related to the Dodos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.check
+{
+    background:url(/assets/Bird.png);
+}
+
+.uncheck
+{
+    background:url(/assets/Pleasure.png) 0 0px;
+}

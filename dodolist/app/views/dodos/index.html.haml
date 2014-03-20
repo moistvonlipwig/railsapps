@@ -1,21 +1,25 @@
-%table
+%script{ :type=> "text/javascript" }  
+  $(document).ready(function() {	  $('#example').dataTable();    } );
+
+
+%table#example
   %thead
     %tr
       %th Name
       %th Done?
+      %th Status
       %th Created
-      %th Preview
   %tbody
     - @dodos.each do |dodo|
-      %tr
+      %tr{ :class => "odd gradeX"}
         %td= dodo.name
         %td
           - if dodo.complete
-            = link_to 'Done...', dodo
+            = link_to 'Done', dodo, :class=>"check"
           - else
-            .badge.badge_important Incomplete
-        %td= dodo.created_at.strftime("%m/%d/%Y")
-        %td= link_to 'Preview...', dodo
+            = link_to 'Note', dodo, :class=>"uncheck"
+        %td= link_to 'Status', dodo
+        %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
     - @end
 %br
 
