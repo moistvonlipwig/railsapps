@@ -83,4 +83,9 @@ update Gemfile "gem 'herb'
 > Dodo.limit(5)
 > Dodo.column_names
 
+### Database operations
+#### Removing a column
+rails generate migrration remove_ranking_from_dodos
+rake db:migrate
+
 
