@@ -1,0 +1,66 @@
+!!! 5
+%html{ :lang => "en"}
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "Causing task extinction"
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application"
+    = javascript_include_tag "jquery.dataTables.min"
+    = javascript_include_tag "dataTables.foundation"    
+    = csrf_meta_tag
+
+  %body
+
+    /-- ######################## Header ########################
+    .header
+      .row
+        .small-12.large-12.columns
+          /-- ######################## Main Menu ###############
+          %nav.top-bar{ "data-topbar" => "" }
+            %ul.title-area
+              %li.name
+                %h1
+                  = link_to "Dodo(Tasks) Slayer", dodos_path
+              %li.toggle-topbar.menu-icon
+                =image_tag "/assets/dodo.png"
+            
+            .section.top-bar-section
+              %ul.right
+                %li.active
+                  = link_to "Home", dodos_path
+                %li.has-dropdown
+                  /-- ################## Sub Menu ###############
+                  = link_to "Action","#"
+                  %ul.dropdown
+                    %li
+                      = link_to "New", action: "new"
+                    %li
+                      = link_to "Delete","#"
+                %li
+                  = link_to "Search","galleries.html"
+                %li
+                  = link_to "Gallery", "portfolio.html"
+                - if user_signed_in? 
+                  %li
+                    = link_to "Edit Profile", edit_user_registration_path, :class => 'navbar-link' 
+                  %li
+                    = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
+                - else
+                  %li
+                    = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+                  %li
+                    = link_to "Login", new_user_session_path, :class => 'navbar-link'
+    %br                                  
+    /-- ################ Container ############################
+    .container
+      .row
+        .small-12.large-9.columns            
+          = yield
+        .small-0.large-3.columns
+          %br
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
