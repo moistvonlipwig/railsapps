@@ -1,7 +1,30 @@
-%h1 Editing dodo
+%span.label.secondary Editing dodo
 
-= render 'form'
+%section.section_main      
+  .row 
+    .panel
 
-= link_to 'Show', @dodo 
-|
-= link_to 'Back', dodos_path 
+      = form_for @dodo do |f|
+        .row
+          .small-8
+            .row
+              .small-3.columns
+                = f.label :name, :class =>"right inline"
+              .small-9.columns
+                = f.text_field :name
+          .small-8
+            .row
+              .small-3.columns
+                = f.label :complete, :class =>"right inline"
+              .small-9.columns
+                = f.check_box :complete
+          .small-8
+            .row
+              .small-9.columns
+              .small-3.columns
+                = f.submit 'Update', :class => "right inline"
+                
+= link_to 'Show', @dodo,
+  { :class=> "tiny round button"}
+= link_to 'Back', dodos_path ,
+  { :class=> "tiny round button"}

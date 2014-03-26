@@ -1,12 +1,12 @@
 %script{ :type=> "text/javascript" }  
-  $(document).ready(function() {	  $('#example').dataTable();    } );
+  $(document).ready(function() {	  $('#dodolist').dataTable();    } );
 
 
-%table#example
+%table#dodolist
   %thead
     %tr
       %th Name
-      %th Done?
+      %th Red List Index*
       %th Status
       %th Created
   %tbody
@@ -19,16 +19,16 @@
               %li                
                 %i{:class => "fi-skull style1"}   
                 = link_to 'Extinct', dodo
-
             - else
               %li
-                %i{ :class => "step fi-paw style3"}
+                %i{ :class => "fi-paw style3"}
                 = link_to "Living", dodo
         %td= link_to 'Status', dodo
         %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
     - @end
 %br
 
-= link_to 'New Dodo', 
-      { :action => :new },
-      { :class=> "button secondary small radius"}
+.dataTables_info
+  = link_to "**Red List Index", "http://www.iucnredlist.org/",
+    { :class=> "dataTables_info"}
+
