@@ -14,10 +14,16 @@
       %tr{ :class => "odd gradeX"}
         %td= dodo.name
         %td
-          - if dodo.complete
-            = link_to 'Done', dodo, :class=>"check"
-          - else
-            = link_to 'Note', dodo, :class=>"uncheck"
+          %ul
+            - if dodo.complete
+              %li                
+                %i{:class => "fi-skull style1"}   
+                = link_to 'Extinct', dodo
+
+            - else
+              %li
+                %i{ :class => "step fi-paw style3"}
+                = link_to "Living", dodo
         %td= link_to 'Status', dodo
         %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
     - @end

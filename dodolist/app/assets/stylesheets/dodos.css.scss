@@ -1,12 +1,12 @@
 // Place all the styles related to the Dodos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.check
-{
-    background:url(/assets/Bird.png);
-}
 
-.uncheck
-{
-    background:url(/assets/Pleasure.png) 0 0px;
-}
+.style1 { font-size: 20px; color: #B8D30B; }
+.style2 { font-size: 20px; color: #2DAEBF; text-shadow: 0px 1px 0px #0092b3, 0px 2px 0px #0087a6, 0px 3px 0px #008099, 0px 4px 0px #00758c, 0px 5px 0px #555, 0px 6px 0px #006a80, 0px 0px 0px #006073, 0px 8px 7px #005566; }
+.style3 { font-size: 20px; color: #E33100; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #E33100, 0 0 30px #E33100, 0 0 40px #E33100, 0 0 50px #E33100, 0 0 75px #E33100; }
+.style4 { font-size: 20px; text-shadow: 0 1px 3px rgba(0,0,0,0.25); color: #A9014B; }
+.style5 { font-size: 20px; color: rgba(245, 159, 26, 0.8); text-shadow: 1px 4px 6px #FFF, 0 0 0 #000, 1px 4px 6px #FFF; }
+.large{ font-size: 50px; line-height: 50px; }
+.medium { font-size: 35px; padding: 0 5px; }
+.small { font-size: 20px; padding: 0 5px; }
