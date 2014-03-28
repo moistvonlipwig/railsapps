@@ -57,4 +57,8 @@ Dodolist::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  # Tags Routes
+  get 'tags/:tag', to: 'dodos#index', as: :tag
+
 end

@@ -1,13 +1,12 @@
 %script{ :type=> "text/javascript" }  
   $(document).ready(function() {	  $('#dodolist').dataTable();    } );
 
-
 %table#dodolist
   %thead
     %tr
       %th Name
       %th Red List Index*
-      %th Status
+      %th Tags
       %th Created
   %tbody
     - @dodos.each do |dodo|
@@ -23,7 +22,7 @@
               %li
                 %i{ :class => "fi-paw style3"}
                 = link_to "Living", dodo
-        %td= link_to 'Status', dodo
+        %td= dodo.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
         %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
     - @end
 %br

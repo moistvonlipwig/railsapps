@@ -1,28 +1,14 @@
 %span.label.secondary Editing dodo
 
-%section.section_main      
-  .row 
-    .panel
+Tags:
+- if @dodo.tags.any?
+  - @dodo.tags.each do |tag|
+    %h4 tag.name
+/--    = link_to tag.name, tagged_url(:tag => tag.name)
 
-      = form_for @dodo do |f|
-        .row
-          .small-8
-            .row
-              .small-3.columns
-                = f.label :name, :class =>"right inline"
-              .small-9.columns
-                = f.text_field :name
-          .small-8
-            .row
-              .small-3.columns
-                = f.label :complete, :class =>"right inline"
-              .small-9.columns
-                = f.check_box :complete
-          .small-8
-            .row
-              .small-9.columns
-              .small-3.columns
-                = f.submit 'Update', :class => "right inline"
+%section.section_main      
+  /-- Display form
+  = render 'form'
                 
 = link_to 'Show', @dodo,
   { :class=> "tiny round button"}

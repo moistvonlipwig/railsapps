@@ -1,23 +1,31 @@
 %script
   $('.datepicker').fdatepicker()
 
-= form_for(@dodo) do |f|
-  - if @dodo.errors.any?
-    #error_explanation
-
-      %ul
-      - @dodo.errors.full_messages.each do |msg| 
-        %li= msg 
-      - @end
-
-  .field
-    = f.label :name 
-    = f.text_field :name 
-
-  .field
-    = f.label :complete 
-    = f.check_box :complete
-
-
-  .actions
-    = f.submit
+%section.section_main      
+  .row 
+    .panel
+      = form_for @dodo do |f|
+        .row
+          .small-8
+            .row
+              .small-3.columns
+                = f.label :name, :class =>"right inline"
+              .small-9.columns
+                = f.text_field :name
+          .small-8
+            .row
+              .small-3.columns
+                = f.label :tag_list, "Tags", :class =>"right inline"
+              .small-9.columns
+                = f.text_field :tag_list,  { :placeholder => "Tags separated by commas" }
+          .small-8
+            .row
+              .small-3.columns
+                = f.label :complete, :class =>"right inline"
+              .small-9.columns
+                = f.check_box :complete                
+          .small-8
+            .row
+              .small-9.columns
+              .small-3.columns
+                = f.submit :class => "right inline"

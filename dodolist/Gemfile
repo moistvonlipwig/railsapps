@@ -60,3 +60,8 @@ gem 'rails_admin'
 
 #Debugging
 gem 'hirb'
+
+#Add Tagging
+gem 'acts-as-taggable-on'
+
+

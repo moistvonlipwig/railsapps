@@ -1,10 +1,19 @@
 class DodosController < ApplicationController
   before_action :set_dodo, only: [:show, :edit, :update, :destroy]
 
+  #Tags
+  def tag_cloud
+    @tags = Dodo.tag_counts_on(:tags)
+  end
+
   # GET /dodos
   # GET /dodos.json
   def index
-    @dodos = Dodo.all
+    if params[:tag]
+      @dodos = Dodo.tagged_with(params[:tag])
+    else
+      @dodos = Dodo.all
+    end
   end
 
   # GET /dodos/1
@@ -69,6 +78,6 @@ class DodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dodo_params
-      params.require(:dodo).permit(:name,:complete,:ranking)
+      params.require(:dodo).permit(:name,:complete,:tag_list)
     end
 end
