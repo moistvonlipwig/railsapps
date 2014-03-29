@@ -1,11 +1,25 @@
-%span.label.secondary Dodo details
+- content_for :main do
+  %span.label.secondary Dodo details
 
-%p#notice #{notice}
+  %p#notice #{notice}
 
-%p
-  %strong Name
-  = @dodo.name
+  %p
+    %strong Name
+    = @dodo.name
 
-= link_to 'Edit', edit_dodo_path(@dodo) 
-|
-= link_to 'Back', dodos_path 
+  %p
+    %strong Created
+    = @dodo.created_at.strftime("%m/%d/%Y")
+   
+  %p
+    %strong Tags
+    - if @dodo.tags.any?
+      - @dodo.tags.each do |tag| 
+        = link_to tag.name, tag_path(tag.name)
+    
+  = link_to 'Edit', edit_dodo_path(@dodo) 
+  |
+  = link_to 'Back', dodos_path 
+
+- content_for :sidebar do
+  %p Place Holder

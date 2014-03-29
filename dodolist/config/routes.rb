@@ -60,5 +60,5 @@ Dodolist::Application.routes.draw do
   
   # Tags Routes
   get 'tags/:tag', to: 'dodos#index', as: :tag
-
+  get 'tagged' => 'dodos#tagged', :as => 'tagged'
 end

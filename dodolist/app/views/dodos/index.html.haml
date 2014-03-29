@@ -1,33 +1,40 @@
-%script{ :type=> "text/javascript" }  
-  $(document).ready(function() {	  $('#dodolist').dataTable();    } );
+- content_for :main do
+  /-- Data table initialization
+  %script{ :type=> "text/javascript" }  
+    $(document).ready(function() {	  $('#dodolist').dataTable();    } );
 
-%table#dodolist
-  %thead
-    %tr
-      %th Name
-      %th Red List Index*
-      %th Tags
-      %th Created
-  %tbody
-    - @dodos.each do |dodo|
-      %tr{ :class => "odd gradeX"}
-        %td= dodo.name
-        %td
-          %ul
-            - if dodo.complete
-              %li                
-                %i{:class => "fi-skull style1"}   
-                = link_to 'Extinct', dodo
-            - else
-              %li
-                %i{ :class => "fi-paw style3"}
-                = link_to "Living", dodo
-        %td= dodo.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-        %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
-    - @end
-%br
+  /-- Task Table layout
+  %table#dodolist
+    %thead
+      %tr
+        %th Name
+        %th Red List Index*
+        %th Tags
+        %th Created
+    %tbody
+      - @dodos.each do |dodo|
+        %tr{ :class => "odd gradeX"}
+          %td= dodo.name
+          %td
+            %ul
+              - if dodo.complete
+                %li                
+                  %i{:class => "fi-skull style1"}   
+                    = link_to 'Extinct', dodo
+              - else
+                %li
+                  %i{ :class => "fi-paw style3"}
+                    = link_to "Living", dodo
+            %td
+              %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
+      - @end
+      %br
+      .dataTables_info
+        = link_to "**Red List Index", "http://www.iucnredlist.org/",
+        { :class=> "dataTables_info"}
 
-.dataTables_info
-  = link_to "**Red List Index", "http://www.iucnredlist.org/",
-    { :class=> "dataTables_info"}
+- content_for :sidebar do
+  -tag_cloud Dodo.tag_counts, %w[s m l] do |tag, css_class|
+    = link_to tag.name, tag_path(tag.name), class: css_class
+
 

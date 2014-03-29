@@ -1,16 +1,12 @@
-%span.label.secondary Editing dodo
+- content_for :main do
+  
+  %span.label.secondary Editing dodo
 
-Tags:
-- if @dodo.tags.any?
-  - @dodo.tags.each do |tag|
-    %h4 tag.name
-/--    = link_to tag.name, tagged_url(:tag => tag.name)
-
-%section.section_main      
-  /-- Display form
-  = render 'form'
-                
-= link_to 'Show', @dodo,
+  %section.section_main      
+    /-- Display form
+    = render 'form'
+    
+  = link_to 'Show', @dodo,
   { :class=> "tiny round button"}
-= link_to 'Back', dodos_path ,
+  = link_to 'Back', dodos_path ,
   { :class=> "tiny round button"}
