@@ -19,6 +19,11 @@ class DodosController < ApplicationController
   # GET /dodos/1
   # GET /dodos/1.json
   def show
+    @dodo = Dodo.find(params[:id])
+    @comments = @dodo.comment_threads
+    if user_signed_in?
+      @new_comment = Comment.build_from(@dodo,current_user.id,"")
+    end
   end
 
   # GET /dodos/new

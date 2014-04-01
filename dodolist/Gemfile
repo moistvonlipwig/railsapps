@@ -64,4 +64,8 @@ gem 'hirb'
 #Add Tagging
 gem 'acts-as-taggable-on'
 
+#Add comments
+gem 'acts_as_commentable_with_threading'
 
+#Adding Simple Forms
+gem 'simple_form'

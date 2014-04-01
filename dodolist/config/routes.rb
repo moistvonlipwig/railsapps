@@ -7,7 +7,7 @@ Dodolist::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'dodo#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -61,4 +61,8 @@ Dodolist::Application.routes.draw do
   # Tags Routes
   get 'tags/:tag', to: 'dodos#index', as: :tag
   get 'tagged' => 'dodos#tagged', :as => 'tagged'
+
+  # Comment Routes
+  resources :comments, :only => [:create, :destroy]
+
 end
