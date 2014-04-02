@@ -11,8 +11,8 @@
     %strong Created
     = @dodo.created_at.strftime("%m/%d/%Y")
    
-  %p
-    = render :partial => 'comments/form', :locals => { :comment => @new_comment }
+  .comments
+    = render :partial => 'comments/form', :locals => { :comment => @new_comment }      
     = render :partial => 'comments/comment', :collection => @comments, :as => :comment
     
   = link_to 'Edit', edit_dodo_path(@dodo) 
