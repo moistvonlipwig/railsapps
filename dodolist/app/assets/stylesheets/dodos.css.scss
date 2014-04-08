@@ -16,3 +16,35 @@
 .css2 { font-size: 1.2em; }
 .css3 { font-size: 1.4em; }
 .css4 { font-size: 1.6em; }
+
+.note {
+    height: 40px;
+    display: inline-block;	
+    box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    float: left;
+    margin: 8px;
+    border: 1px solid rgba(0,0,0,.25);
+}
+ 
+.sticky1 {
+    transform: rotate(-3.5deg);
+    -webkit-transform: rotate(-3.5deg);
+    -moz-transform: rotate(-3.5deg);
+    background-color: #CBFAFA;
+}
+
+div#frame a:nth-child(3n) .pin {
+    background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 50%, black 100%);
+    background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, black);
+    background-image: radial-gradient(yellow 50%, black 100%);
+}
+
+div#frame { 
+    background: url(cork_board.gif) no-repeat;
+    width: 100px;
+    height: 600px;
+    padding-top: 35px;
+    padding-left: 35px;
+}

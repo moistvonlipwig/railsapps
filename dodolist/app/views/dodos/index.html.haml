@@ -9,7 +9,6 @@
       %tr
         %th Name
         %th Red List Index*
-        %th Tags
         %th Created
     %tbody
       - @dodos.each do |dodo|
@@ -25,8 +24,7 @@
                 %li
                   %i{ :class => "fi-paw style3"}
                     = link_to "Living", dodo
-            %td
-              %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
+            %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
       - @end
       %br
       .dataTables_info
@@ -34,7 +32,7 @@
         { :class=> "dataTables_info"}
 
 - content_for :sidebar do
-  -tag_cloud Dodo.tag_counts, %w[s m l] do |tag, css_class|
-    = link_to tag.name, tag_path(tag.name), class: css_class
-
+  #frame
+    -tag_cloud Dodo.tag_counts, %w[s m l] do |tag, css_class|
+      = link_to tag.name, tag_path(tag.name), class: "fi-price-tag note sticky1"
 

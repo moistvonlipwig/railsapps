@@ -21,6 +21,7 @@
 
 - content_for :sidebar do
   - if @dodo.tags.any?
-    - @dodo.tags.each do |tag| 
-      = link_to tag.name, tag_path(tag.name)
+    #frame
+      - @dodo.tags.each do |tag| 
+        = link_to tag.name, tag_path(tag.name), class: "fi-price-tag note sticky1"
 
