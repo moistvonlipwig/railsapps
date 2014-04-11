@@ -1,18 +1,19 @@
 - content_for :main do
   /-- Data table initialization
-  %script{ :type=> "text/javascript" }  
-    $(document).ready(function() {	  $('#dodolist').dataTable();    } );
+  :javascript
+    $(document).ready(function() { $('#dodolist').dataTable();  });
 
   /-- Task Table layout
-  %table#dodolist
+  %table{ :class => "ui-widget", :id => "dodolist" }
     %thead
       %tr
         %th Name
         %th Red List Index*
         %th Created
-    %tbody
+        %th Last Updated
+    %tbody{ :class => "ui-widget-content ui-state-default"}
       - @dodos.each do |dodo|
-        %tr{ :class => "odd gradeX"}
+        %tr{ :class => "odd gradeX",:id => dodo.id}
           %td= dodo.name
           %td
             %ul
@@ -25,6 +26,7 @@
                   %i{ :class => "fi-paw style3"}
                     = link_to "Living", dodo
             %td= link_to dodo.created_at.strftime("%m/%d/%Y"), dodo
+            %td= link_to dodo.updated_at.strftime("%m/%d/%Y"), dodo
       - @end
       %br
       .dataTables_info
