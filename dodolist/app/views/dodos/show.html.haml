@@ -1,19 +1,24 @@
 - content_for :main do
-  %span.label.secondary Dodo details
+  %span.label Dodo details
+  .panel
+    %p#notice #{notice}
 
-  %p#notice #{notice}
+    %p
+      %strong Name
+      = @dodo.name
 
-  %p
-    %strong Name
-    = @dodo.name
+    %p
+      %strong Created
+      = @dodo.created_at.strftime("%m/%d/%Y")
 
-  %p
-    %strong Created
-    = @dodo.created_at.strftime("%m/%d/%Y")
-   
-  .comments
-    = render :partial => 'comments/form', :locals => { :comment => @new_comment }      
-    = render :partial => 'comments/comment', :collection => @comments, :as => :comment
+  .row
+    .small-9.large-6.columns
+      %span.label.secondary Comments
+      .comments
+        = render :partial => 'comments/form', :locals => { :comment => @new_comment }      
+        = render :partial => 'comments/comment', :collection => @comments, :as => :comment
+    .small-3.large-6.columns
+      %span.label.secondary Reference Links
     
   = link_to 'Edit', edit_dodo_path(@dodo) 
   |
