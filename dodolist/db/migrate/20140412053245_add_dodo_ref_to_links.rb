@@ -1,5 +1,5 @@
 class AddDodoRefToLinks < ActiveRecord::Migration
   def change
-    add_column :links, :dodo, :refernces
+    add_reference :links, :dodo, index: true
   end
 end

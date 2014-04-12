@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411162634) do
+ActiveRecord::Schema.define(version: 20140412053245) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
@@ -37,8 +37,15 @@ ActiveRecord::Schema.define(version: 20140411162634) do
     t.boolean  "complete"
   end
 
-# Could not dump table "links" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "links", force: true do |t|
+    t.string   "url"
+    t.datetime "create"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "dodo_id"
+  end
+
+  add_index "links", ["dodo_id"], name: "index_links_on_dodo_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
