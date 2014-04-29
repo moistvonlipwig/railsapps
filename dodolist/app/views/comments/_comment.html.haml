@@ -1,7 +1,6 @@
-- @comments.each do |comment|
-  %div.comment{ :id => "comment-#{comment.id}" }
-    = link_to "X", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment", :disable_with => "X", :class => 'style3'
-    %h4
-      %small= comment.user.email
-      %small= comment.updated_at
-      %p= comment.body
+%div.comment{ :id => "comment-#{comment.id}" }
+  = link_to "X", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment", :disable_with => "X", :class => 'style3'
+  %h4
+    %small= comment.user.email
+    %small= comment.updated_at
+    %p= comment.body
